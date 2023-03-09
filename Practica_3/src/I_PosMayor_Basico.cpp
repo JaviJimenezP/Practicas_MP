@@ -10,27 +10,20 @@
 
 #include<iostream>
 #include "GeneradorAleatorioEnteros.h"
+#include "ProcesamientoArrayInt.h"
 using namespace std;
 
 //*****************************************************************************
 
 
-int * PosMayor(int *pv, int dcha, int izq)
-{
-	int *pm = &pv[izq];
-	for (int i=izq+1 ; i<dcha ; i++)
-	{
-		if (*(pv+i) > *pm)
-		{
-			pm = pv+i
-		}
-	}
-	return mayor;
-}
-
 int main(){
 
-	const int TOPE = 100;
+	/* El ususario intorduce el tamaño del vector con el que quiere operar, 
+		los valores entre los que se realizará la función y por último la 
+		ejecuta
+	*/
+	
+	const int TOPE = 1000;
 	int vector[TOPE];
 	int util_vector;
 	int dcha, izq;
@@ -42,7 +35,7 @@ int main(){
 
 	while(util_vector > TOPE)
 	{
-		cout << "Hay un máximo de 100 casillas, pruebe de nuevo: ";
+		cout << "Hay un máximo de 1000 casillas, pruebe de nuevo: ";
 		cin >> util_vector;
 	}
 
@@ -61,11 +54,14 @@ int main(){
 		cin >> dcha;
 	}
 
-	//int mayor_pos = PosMayor(pv, izq, dcha);
+	int *mayor_pos = PosMayor(vector, dcha, izq);
 
-	//cout << mayor_pos;
+	cout << *mayor_pos << endl;
+
 
 	for(int i = 0; i < util_vector; i++){
-		cout << *(vector+i);
+		cout << *(vector+i) << " ";
 	}
+
+	cout << endl;
 }
